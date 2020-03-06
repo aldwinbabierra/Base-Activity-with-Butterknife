@@ -34,5 +34,7 @@ dependencies {
 	implementation 'com.jakewharton:butterknife:10.2.1'
 	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 	implementation 'libs.aldwinbabierra:baseactivitywithbk:$latestVersion'
+	//or
+	implementation 'com.github.aldwinbabierra:Base-Activity-with-Butterknife:$latestVersion'
 }
 ```
