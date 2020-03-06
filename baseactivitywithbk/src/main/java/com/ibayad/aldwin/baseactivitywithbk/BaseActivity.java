@@ -8,13 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.ButterKnife;
+
+@SuppressWarnings({"WeakerAccess", "EmptyMethod", "unused"})
 public abstract class BaseActivity extends AppCompatActivity {
 	
 	private String TAG = "";
 	private Context context = null;
 	
 	@NonNull
-	protected abstract int layoutResource ();
+	protected abstract Integer layoutResource ();
 	
 	@Override
 	protected void onCreate (@Nullable Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	@CallSuper
 	protected void init () {
 		try {
+			//noinspection RedundantCast
 			context = (Context) this;
 			TAG = StringUtil.trimChars(context.getClass().getSimpleName(), 23);
 		} catch (Exception e) {

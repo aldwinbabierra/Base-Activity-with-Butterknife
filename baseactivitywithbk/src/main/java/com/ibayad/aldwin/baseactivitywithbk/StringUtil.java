@@ -3,9 +3,10 @@ package com.ibayad.aldwin.baseactivitywithbk;
 class StringUtil {
 	
 	private static Boolean isNullOrEmpty (String string) {
-		return string.trim().length() == 0 || string == null;
+		return string.trim().length() == 0 || string.equalsIgnoreCase("");
 	}
 	
+	@SuppressWarnings("SameParameterValue")
 	static String trimChars (String string, Integer numOfChars) {
 		if (isNullOrEmpty(string)) {
 			throw new RuntimeException("String can not be empty!");
