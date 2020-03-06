@@ -2,7 +2,7 @@
 
 *Latest version:*
 
-[![](https://api.bintray.com/packages/aldwinb16/BaseActivity-with-Butterknife/libs.aldwinbabierra.baseactivity/images/download.svg) ](https://bintray.com/aldwinb16/BaseActivity-with-Butterknife/libs.aldwinbabierra.baseactivity/_latestVersion)
+[ ![](https://api.bintray.com/packages/aldwinb16/BaseActivityWithBK/BaseActivityWithBK/images/download.svg?version=0.0.1) ](https://bintray.com/aldwinb16/BaseActivityWithBK/BaseActivityWithBK/0.0.1/link)
 [![](https://jitpack.io/v/aldwinbabierra/Base-Activity-with-Butterknife.svg)](https://jitpack.io/#aldwinbabierra/Base-Activity-with-Butterknife)
 
 
