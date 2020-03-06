@@ -1,0 +1,2 @@
+include ':app', ':baseactivitywithbk'
+rootProject.name='Base Activity with Butterknife'
