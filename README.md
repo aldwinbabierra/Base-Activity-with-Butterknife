@@ -31,8 +31,8 @@ android {
 ```
 dependencies {
 	...
-	implementation 'com.jakewharton:butterknife:$latestVersion'
-	annotationProcessor 'com.jakewharton:butterknife-compiler:$latestVersion'
+	implementation 'com.jakewharton:butterknife:10.2.1'
+	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 	implementation 'libs.aldwinbabierra:baseactivitywithbk:$latestVersion'
 }
 ```
