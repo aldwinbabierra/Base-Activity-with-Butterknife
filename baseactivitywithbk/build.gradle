@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+	bintrayRepo = 'BaseActivityWithBK'
+	bintrayName = 'BaseActivityWithBK'
+	
+	publishedGroupId = 'libs.aldwinbabierra'
+	libraryName = 'BaseActivityWithBK'
+	artifact = 'BaseActivityWithBK'
+	
+	libraryDescription = 'Base Activity with ButterKnife'
+	
+	siteUrl = 'https://github.com/aldwinbabierra/Base-Activity-with-Butterknife'
+	gitUrl = 'https://github.com/aldwinbabierra/Base-Activity-with-Butterknife.git'
+	
+	libraryVersion = '0.0.1'
+	
+	developerId = 'aldwinb16'
+	developerName = 'Aldwin Babierra'
+	developerEmail = 'aldwinb16@gmail.com'
+	
+	licenseName = 'The Apache Software License, Version 2.0'
+	licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+	allLicenses = ["Apache-2.0"]
+}
+
 android {
 	compileSdkVersion 29
 	buildToolsVersion "29.0.2"
@@ -38,3 +62,7 @@ dependencies {
 	implementation 'com.jakewharton:butterknife:10.2.1'
 	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 }
+
+//apply from: 'publish.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
