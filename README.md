@@ -1,4 +1,4 @@
-# BaseActivity with Butterknife
+# BaseActivity with ButterKnife
 
 *Latest version:*
 
