@@ -6,6 +6,12 @@
 [![](https://jitpack.io/v/aldwinbabierra/Base-Activity-with-Butterknife.svg)](https://jitpack.io/#aldwinbabierra/Base-Activity-with-Butterknife)
 
 
+### Project Progress:
+- [x] ~~BaseActivity~~ - *done*
+- [ ] BaseFragment - in progress
+
+<br><br>
+
 __Project-level Gradle:__
 ```
 allprojects {
@@ -38,3 +44,9 @@ dependencies {
 	implementation 'com.github.aldwinbabierra:Base-Activity-with-Butterknife:$latestVersion'
 }
 ```
+
+<br>
+
+__Functions:__
+* __TAG()__: returns the context/activity name as a String.
+* __getBaseActivity()__: returns the main context/activity as a Context.
