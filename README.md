@@ -9,9 +9,7 @@
 ### Project Progress:
 - [x] ~~BaseActivity~~ - *done*
 - [ ] BaseFragment - in progress
-
-<br><br>
-
+<br>
 __Project-level Gradle:__
 ```
 allprojects {
