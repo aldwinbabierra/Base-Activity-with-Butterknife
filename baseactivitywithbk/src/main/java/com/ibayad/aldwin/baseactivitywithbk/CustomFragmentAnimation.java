@@ -3,6 +3,13 @@ package com.ibayad.aldwin.baseactivitywithbk;
 import androidx.annotation.AnimRes;
 import androidx.annotation.AnimatorRes;
 
+/**
+ * Created and Coded by:
+ * Aldwin and Josef
+ * iBayad Online Ventures Inc.
+ * (c) 2020
+ */
+
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class CustomFragmentAnimation {
 

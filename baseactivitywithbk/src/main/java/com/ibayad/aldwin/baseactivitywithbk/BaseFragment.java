@@ -14,15 +14,22 @@ import androidx.fragment.app.Fragment;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
+/**
+ * Created and Coded by:
+ * Aldwin and Josef
+ * iBayad Online Ventures Inc.
+ * (c) 2020
+ */
+
 @SuppressWarnings({"WeakerAccess", "EmptyMethod"})
 public abstract class BaseFragment extends Fragment {
-
+	
 	private Unbinder unbinder;
 	private Context context;
 	private String TAG = "";
 	
 	@NonNull
-	protected abstract Integer layoutResource();
+	protected abstract Integer layoutResource ();
 	
 	@Nullable
 	@Override
@@ -38,31 +45,40 @@ public abstract class BaseFragment extends Fragment {
 	}
 	
 	@CallSuper
-	protected void initViews() {
+	public void initViews () {
 	
 	}
 	
 	@CallSuper
-	protected void init() {
+	public void init () {
 		try {
-			this.TAG = StringUtil.trimChars(this.context.getClass().getSimpleName(), 23);
+			this.TAG = this.context.getClass().getSimpleName();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@CallSuper
-	protected void initListeners() {
+	public void initListeners () {
 	
 	}
 	
 	@SuppressWarnings("unused")
-	protected Context getBaseActivity() {
+	public Context getBaseActivity () {
 		return this.context;
 	}
 	
-	protected String TAG() {
-		return this.TAG;
+	public String TAG () {
+		return TAG(0);
+	}
+	
+	public String TAG (Integer numOfChars) {
+		try {
+			return StringUtil.trimChars(this.TAG, numOfChars);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
 	}
 	
 	@Override

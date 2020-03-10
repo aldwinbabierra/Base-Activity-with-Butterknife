@@ -15,6 +15,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import butterknife.ButterKnife;
 
+/**
+ * Created and Coded by:
+ * Aldwin and Josef
+ * iBayad Online Ventures Inc.
+ * (c) 2020
+ */
+
 @SuppressWarnings({"WeakerAccess", "EmptyMethod", "unused"})
 public abstract class BaseActivity extends AppCompatActivity {
 	
@@ -41,17 +48,29 @@ public abstract class BaseActivity extends AppCompatActivity {
 	}
 	
 	@CallSuper
-	protected void initViews () {
+	public void initViews () {
 	
 	}
 	
 	@CallSuper
-	protected void init () {
+	public void init () {
+		//noinspection RedundantCast
+		context = (Context) this;
+		
 		try {
-			//noinspection RedundantCast
-			context = (Context) this;
-			TAG = StringUtil.trimChars(this.context.getClass().getSimpleName(), 23);
-			fragmentManager = this.getSupportFragmentManager();
+			TAG = this.context.getClass().getSimpleName();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			fragmentManager = getSupportFragmentManager();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			
 			fragmentStackCount = fragmentManager.getBackStackEntryCount();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -59,57 +78,85 @@ public abstract class BaseActivity extends AppCompatActivity {
 	}
 	
 	@CallSuper
-	protected void initListeners () {
+	public void initListeners () {
 	
 	}
 	
-	protected void loadFragment (@NonNull View target, BaseFragment fragment) {
+	public void loadFragment (@NonNull View target, BaseFragment fragment) {
 		loadFragment(target, fragment, fragment.TAG(), null);
 	}
 	
-	protected void loadFragment (@NonNull View target, BaseFragment fragment, String tag) {
+	public void loadFragment (@NonNull View target, BaseFragment fragment, String tag) {
 		loadFragment(target, fragment, tag, null);
 	}
 	
-	protected void loadFragment (@NonNull View target, BaseFragment fragment, CustomFragmentAnimation customFragmentAnimation) {
+	public void loadFragment (@NonNull View target, BaseFragment fragment, CustomFragmentAnimation customFragmentAnimation) {
 		loadFragment(target, fragment, fragment.TAG(), customFragmentAnimation);
 	}
 	
-	protected void loadFragment (@NonNull View target, BaseFragment fragment, String tag, CustomFragmentAnimation customFragmentAnimation) {
-		this.fragmentTransaction = this.fragmentManager.beginTransaction();
-		
-		//Add animation if not null
-		if (customFragmentAnimation != null) {
-			if ((customFragmentAnimation.getEnter() != 0 && customFragmentAnimation.getExit() != 0)
-						    && (customFragmentAnimation.getPopEnter() != 0 && customFragmentAnimation.getPopExit() != 0)) {
-				this.fragmentTransaction.setCustomAnimations(customFragmentAnimation.getEnter(),
-							customFragmentAnimation.getExit(),
-							customFragmentAnimation.getPopEnter(),
-							customFragmentAnimation.getPopExit());
-			} else if (customFragmentAnimation.getEnter() != 0 && customFragmentAnimation.getExit() != 0) {
-				this.fragmentTransaction.setCustomAnimations(customFragmentAnimation.getEnter(), customFragmentAnimation.getExit());
+	public void loadFragment (@NonNull View target, BaseFragment fragment, String tag, CustomFragmentAnimation customFragmentAnimation) {
+		try {
+			this.fragmentTransaction = this.fragmentManager.beginTransaction();
+			
+			//Add animation if not null
+			if (customFragmentAnimation != null) {
+				if ((customFragmentAnimation.getEnter() != 0 && customFragmentAnimation.getExit() != 0)
+							    && (customFragmentAnimation.getPopEnter() != 0 && customFragmentAnimation.getPopExit() != 0)) {
+					this.fragmentTransaction.setCustomAnimations(customFragmentAnimation.getEnter(),
+								customFragmentAnimation.getExit(),
+								customFragmentAnimation.getPopEnter(),
+								customFragmentAnimation.getPopExit());
+				} else if (customFragmentAnimation.getEnter() != 0 && customFragmentAnimation.getExit() != 0) {
+					this.fragmentTransaction.setCustomAnimations(customFragmentAnimation.getEnter(), customFragmentAnimation.getExit());
+				}
 			}
-		}
+			
+			this.fragmentTransaction.replace(target.getId(), fragment, tag);
+			this.fragmentTransaction.addToBackStack(tag);
+			this.fragmentTransaction.commit();
 		
-		this.fragmentTransaction.replace(target.getId(), fragment, tag);
-		this.fragmentTransaction.addToBackStack(tag);
-		this.fragmentTransaction.commit();
+			Log.d(TAG(23), tag + " has been added to the stack!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
-	protected Context getBaseActivity () {
+	public Context getBaseActivity () {
 		return this.context;
 	}
 	
-	protected FragmentManager getBaseFragmentManager () {
+	public FragmentManager getBaseFragmentManager () {
 		return this.fragmentManager;
 	}
 	
-	protected Integer getFragmentStackCount () {
+	public Integer getFragmentStackCount () {
 		return this.fragmentStackCount;
 	}
 	
-	protected String TAG () {
-		return this.TAG;
+	public String TAG () {
+		return TAG(0);
+	}
+	
+	public String TAG (Integer numOfChars) {
+		try {
+			return StringUtil.trimChars(this.TAG, numOfChars);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
+	
+	@Override
+	public void onBackPressed () {
+		try {
+			if (getFragmentStackCount() == 1) {
+				super.onBackPressed();
+			} else {
+				this.fragmentManager.popBackStack();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -134,12 +181,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 			}
 			
 			if (this.fragmentManager.popBackStackImmediate()) {
-				Log.d(this.TAG, "Popped fragments from the stack: " + builder.toString());
+				Log.d(TAG(23), "Popped fragments from the stack: " + builder.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			isDestroyed = true;
+			Log.d(TAG(23), "this activity is now destroyed.");
 		}
 		
 		super.onDestroy();
