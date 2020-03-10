@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 
+def verName = '0.0.2'
+
 ext {
 	bintrayRepo = 'BaseActivityWithBK'
 	bintrayName = 'BaseActivityWithBK'
@@ -13,7 +15,7 @@ ext {
 	siteUrl = 'https://github.com/aldwinbabierra/Base-Activity-with-Butterknife'
 	gitUrl = 'https://github.com/aldwinbabierra/Base-Activity-with-Butterknife.git'
 	
-	libraryVersion = '0.0.1'
+	libraryVersion = verName
 	
 	developerId = 'aldwinb16'
 	developerName = 'Aldwin Babierra'
@@ -32,7 +34,7 @@ android {
 		minSdkVersion 19
 		targetSdkVersion 29
 		versionCode 1
-		versionName "0.0.1"
+		versionName verName
 		
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 		consumerProguardFiles 'consumer-rules.pro'
@@ -59,6 +61,7 @@ dependencies {
 	androidTestImplementation 'androidx.test.ext:junit:1.1.1'
 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 	
+	//noinspection AnnotationProcessorOnCompilePath
 	implementation 'com.jakewharton:butterknife:10.2.1'
 	annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
 }
