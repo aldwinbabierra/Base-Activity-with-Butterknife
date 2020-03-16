@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
  * (c) 2020
  */
 
-@SuppressWarnings({"WeakerAccess", "EmptyMethod", "unused"})
+@SuppressWarnings({"EmptyMethod", "unused"})
 public abstract class BaseActivity extends AppCompatActivity {
 	
 	private String TAG = "";
@@ -85,7 +85,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	}
 	
 	public void loadFragment (@NonNull View target, BaseFragment fragment) {
-		loadFragment(target, fragment, fragment.TAG(), null);
+		loadFragment(target, fragment, fragment.getMyTag(), null);
 	}
 	
 	public void loadFragment (@NonNull View target, BaseFragment fragment, String tag) {
@@ -93,7 +93,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	}
 	
 	public void loadFragment (@NonNull View target, BaseFragment fragment, CustomFragmentAnimation customFragmentAnimation) {
-		loadFragment(target, fragment, fragment.TAG(), customFragmentAnimation);
+		loadFragment(target, fragment, fragment.getMyTag(), customFragmentAnimation);
 	}
 	
 	public void loadFragment (@NonNull View target, BaseFragment fragment, String tag, CustomFragmentAnimation customFragmentAnimation) {
@@ -117,7 +117,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 			this.fragmentTransaction.addToBackStack(tag);
 			this.fragmentTransaction.commit();
 			
-			Log.d(getTag(23), tag + " has been added to the stack!");
+			Log.d(getMyTag(23), tag + " has been added to the stack!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -135,11 +135,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 		return this.fragmentStackCount;
 	}
 	
-	public String getTag () {
-		return getTag(0);
+	public String getMyTag () {
+		return getMyTag(0);
 	}
 	
-	public String getTag (Integer numOfChars) {
+	public String getMyTag (Integer numOfChars) {
 		try {
 			return StringUtil.trimChars(this.TAG, numOfChars);
 		} catch (Exception e) {
@@ -183,13 +183,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 			}
 			
 			if (this.fragmentManager.popBackStackImmediate()) {
-				Log.d(getTag(23), "Popped fragments from the stack: " + builder.toString());
+				Log.d(getMyTag(23), "Popped fragments from the stack: " + builder.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			isDestroyed = true;
-			Log.d(getTag(23), "this activity is now destroyed.");
+			Log.d(getMyTag(23), "this activity is now destroyed.");
 		}
 		
 		super.onDestroy();

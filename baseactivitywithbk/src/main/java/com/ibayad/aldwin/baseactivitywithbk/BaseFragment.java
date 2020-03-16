@@ -46,7 +46,9 @@ public abstract class BaseFragment extends Fragment {
 	
 	@CallSuper
 	public void initViews () {
-	
+		//Initialize your views here
+		//if not using ButterKnife
+		//and/or using special initialization.
 	}
 	
 	@CallSuper
@@ -60,7 +62,7 @@ public abstract class BaseFragment extends Fragment {
 	
 	@CallSuper
 	public void initListeners () {
-	
+		//Initialize your listeners here
 	}
 	
 	@SuppressWarnings("unused")
@@ -68,11 +70,11 @@ public abstract class BaseFragment extends Fragment {
 		return this.context;
 	}
 	
-	public String TAG () {
-		return TAG(0);
+	public String getMyTag () {
+		return getMyTag(0);
 	}
 	
-	public String TAG (Integer numOfChars) {
+	public String getMyTag (Integer numOfChars) {
 		try {
 			return StringUtil.trimChars(this.TAG, numOfChars);
 		} catch (Exception e) {
