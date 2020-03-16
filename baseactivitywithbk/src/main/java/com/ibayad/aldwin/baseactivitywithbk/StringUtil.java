@@ -13,17 +13,23 @@ class StringUtil {
 		return string.trim().length() == 0 || string.equalsIgnoreCase("");
 	}
 	
-	@SuppressWarnings("SameParameterValue")
-	static String trimChars (String string, Integer numOfChars) throws Exception {
-		if (isNullOrEmpty(string)) {
-			throw new Exception("String can not be empty.");
-		} else if (string.length() > numOfChars) {
-			return string.substring(0, numOfChars);
-		} else if (numOfChars == 0 || string.length() <= numOfChars) {
-			return string;
-		} else {
-			return "";
+	@SuppressWarnings({"SameParameterValue", "WeakerAccess"})
+	protected static String trimChars (String string, Integer numOfChars) {
+		try {
+			if (isNullOrEmpty(string)) {
+				return null;
+			} else if (string.length() > numOfChars) {
+				return string.substring(0, numOfChars);
+			} else if (numOfChars == 0 || string.length() <= numOfChars) {
+				return string;
+			} else {
+				return "";
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+		
+		return string;
 	}
 	
 }

@@ -49,7 +49,9 @@ public abstract class BaseActivity extends AppCompatActivity {
 	
 	@CallSuper
 	public void initViews () {
-	
+		//Initialize your views here
+		//if not using ButterKnife
+		//and/or using special initialization.
 	}
 	
 	@CallSuper
@@ -79,7 +81,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 	
 	@CallSuper
 	public void initListeners () {
-	
+		//Initialize your listeners here
 	}
 	
 	public void loadFragment (@NonNull View target, BaseFragment fragment) {
@@ -114,8 +116,8 @@ public abstract class BaseActivity extends AppCompatActivity {
 			this.fragmentTransaction.replace(target.getId(), fragment, tag);
 			this.fragmentTransaction.addToBackStack(tag);
 			this.fragmentTransaction.commit();
-		
-			Log.d(TAG(23), tag + " has been added to the stack!");
+			
+			Log.d(getTag(23), tag + " has been added to the stack!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -133,11 +135,11 @@ public abstract class BaseActivity extends AppCompatActivity {
 		return this.fragmentStackCount;
 	}
 	
-	public String TAG () {
-		return TAG(0);
+	public String getTag () {
+		return getTag(0);
 	}
 	
-	public String TAG (Integer numOfChars) {
+	public String getTag (Integer numOfChars) {
 		try {
 			return StringUtil.trimChars(this.TAG, numOfChars);
 		} catch (Exception e) {
@@ -181,13 +183,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 			}
 			
 			if (this.fragmentManager.popBackStackImmediate()) {
-				Log.d(TAG(23), "Popped fragments from the stack: " + builder.toString());
+				Log.d(getTag(23), "Popped fragments from the stack: " + builder.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			isDestroyed = true;
-			Log.d(TAG(23), "this activity is now destroyed.");
+			Log.d(getTag(23), "this activity is now destroyed.");
 		}
 		
 		super.onDestroy();
