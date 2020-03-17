@@ -4,8 +4,9 @@
 *Latest version:*
 
 [![](https://api.bintray.com/packages/aldwinb16/BaseActivityWithBK/BaseActivityWithBK/images/download.svg) ](https://bintray.com/aldwinb16/BaseActivityWithBK/BaseActivityWithBK/_latestVersion)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d476d16b4258485fb25006c68ccd0bcb)](https://app.codacy.com/manual/aldwinbabierra/Base-Activity-with-Butterknife?utm_source=github.com&utm_medium=referral&utm_content=aldwinbabierra/Base-Activity-with-Butterknife&utm_campaign=Badge_Grade_Dashboard)
 [![](https://jitpack.io/v/aldwinbabierra/Base-Activity-with-Butterknife.svg)](https://jitpack.io/#aldwinbabierra/Base-Activity-with-Butterknife)
+<br>
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/d476d16b4258485fb25006c68ccd0bcb)](https://app.codacy.com/manual/aldwinbabierra/Base-Activity-with-Butterknife?utm_source=github.com&utm_medium=referral&utm_content=aldwinbabierra/Base-Activity-with-Butterknife&utm_campaign=Badge_Grade_Dashboard)
 
 
 ## Implementation (Android):
