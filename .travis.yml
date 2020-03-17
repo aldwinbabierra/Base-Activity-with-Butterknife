@@ -9,8 +9,7 @@ jobs:
     include:
     - stage: build
       script:
-      - |
-        ./gradlew \
+      - bash ./gradlew \
         build \
         jacocoTestReport
       after_success:
