@@ -16,4 +16,5 @@ jobs:
         build \
         jacocoTestReport
       after_success:
+      - export CODECOV_TOKEN="d2c32f08-36bf-42d5-a9ff-20cb771f92a7"
       - bash <(curl -s https://codecov.io/bash)
