@@ -1,7 +1,18 @@
 language: android
-dist: trusty
+jdk: oraclejdk8
+sudo: false
 android:
-	components:
-		- build-tools-29.0.3
-		- android-29
-install: ant deps
+    components:
+        - tools
+        - build-tools-29.0.3
+        - android-29
+jobs:
+    include:
+    - stage: build
+      script:
+      - |
+        ./gradlew \
+        build \
+        jacocoTestReport
+      after_success:
+      - bash <(curl -s https://codecov.io/bash)
